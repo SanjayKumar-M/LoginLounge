@@ -1,5 +1,6 @@
 import React from 'react'
 import "../Styles/Register.css"
+import LoadingOverlay from './Loading'
 function Register() {
     return (
         <>
@@ -30,7 +31,9 @@ function Register() {
                     </form>
 
                 </div>
+
             </div>
+            <LoadingOverlay />
         </>
     )
 }
