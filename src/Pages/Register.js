@@ -2,33 +2,36 @@ import React from 'react'
 import "../Styles/Register.css"
 function Register() {
     return (
-        <div className='content'>
+        <>
             <div class="container">
-                <div class="name">Register Now</div>
-                <form action="#">
-                    <div class="data">
-                        <label for="name">Name</label>
-                        <input type="text" />
+                <div className='title'>
+                    REGISTRATION
+                </div>
+                <div className='form'>
+                    <form action='#'>
+                        <label className='heading'>Name</label>
+                        <input type='text'></input>
+                        <div className='err'>Name required *</div>
 
-                        <label for="email">Email</label>
-                        <input type="email" />
+                        <label className='heading'>Email</label>
+                        <input type='text'></input>
+                        <div className='err'>Email required *</div>
 
-                        <label for="password">Password</label>
-                        <input type="password" />
+                        <label className='heading'>Password</label>
+                        <input type='password'></input>
+                        <div className='err'>Password required *</div>
 
-                       
-                    </div>
+                        <div class="btn" id="btn2">
+                            <button>Register</button>
+                        </div>
+                        <div class="signup">
+                            Already Registered? <a href="index.html">Login</a>
+                        </div>
+                    </form>
 
-
-                    <div class="btn" id="btn2">
-                        <button>Register</button>
-                    </div>
-                    <div class="signup">
-                        Already Registered? <a href="index.html">Login</a>
-                    </div>
-                </form>
+                </div>
             </div>
-        </div>
+        </>
     )
 }
 
