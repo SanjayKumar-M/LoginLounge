@@ -1,5 +1,5 @@
 
-import Register from './Pages/Register';
+import Register from './Components/Register';
 function App() {
   return (
     <div className="App">
