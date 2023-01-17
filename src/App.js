@@ -1,10 +1,10 @@
-import logo from './logo.svg';
-import './App.css';
 
+import Register from './Pages/Register';
 function App() {
   return (
     <div className="App">
-      <h1>LoginLounge</h1>
+      
+      <Register />
       
     </div>
   );
