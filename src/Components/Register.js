@@ -1,7 +1,12 @@
-import React from 'react'
+import React, { useState } from 'react'
 import "../Styles/Register.css"
 import LoadingOverlay from './Loading'
-function Register() {
+const Register = () => {
+
+    const [err, setErr] = useState({
+        email: { required: false }, name: { required: false }, password: { required: false }, API: null
+    })
+
     return (
         <>
             <div class="container">
@@ -12,16 +17,20 @@ function Register() {
                     <form action='#'>
                         <label className='heading'>Name</label>
                         <input type='text'></input>
-                        <div className='err'>Name required *</div>
+                        {err.name.required ? (
+                            <div className='err'>Name required *</div>) : null
+                        }
 
                         <label className='heading'>Email</label>
                         <input type='text'></input>
-                        <div className='err'>Email required *</div>
-
+                        {err.email.required ? (
+                            <div className='err'>Email required *</div>) : null
+                        }
                         <label className='heading'>Password</label>
                         <input type='password'></input>
-                        <div className='err'>Password required *</div>
-
+                        {err.password.required ? (
+                            <div className='err'>Password required *</div>) : null
+                        }
                         <div class="btn" id="btn2">
                             <button>Register</button>
                         </div>
@@ -33,7 +42,9 @@ function Register() {
                 </div>
 
             </div>
-            <LoadingOverlay />
+            {err.API ? (
+                <LoadingOverlay />) : null
+            }
         </>
     )
 }
