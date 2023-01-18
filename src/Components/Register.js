@@ -33,7 +33,14 @@ const Register = () => {
         if (!hasErrors) {
             setLoading(true);
             //call API here
-            setLoading(false);
+            apiCall(Input, (error, response) => {
+                if (error) {
+                    // handle error
+                } else {
+                    // handle success
+                }
+                setLoading(false);
+            });
         }
     }
 
