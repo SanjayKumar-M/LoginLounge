@@ -1,6 +1,10 @@
 import React, { useState } from 'react'
+import { Navigate } from 'react-router-dom'
 import "../Styles/Register.css"
+import ApiRegister from './Api'
+import { isAuthenticated } from './Authentication'
 import LoadingOverlay from './Loading'
+import StorageData from './StorageData'
 
 const Register = () => {
 
@@ -29,10 +33,15 @@ const Register = () => {
             hasErrors = true;
         }
 
-        
+
         if (!hasErrors) {
             setLoading(true);
-          
+            ApiRegister(Input).then((response) => {
+                StorageData(response.data.tokenID);
+            }
+            )
+                .catch((error) => { console.log(error) })
+                .finally(() => { setLoading(false) })
         }
         setErr(err)
     }
@@ -46,6 +55,10 @@ const Register = () => {
 
     }
 
+    if (isAuthenticated()) {
+        return <Navigate to="/dashboard" />
+
+    }
     return (
         <>
             <div className="container">
@@ -70,7 +83,7 @@ const Register = () => {
                         {err.password.required ? (
                             <div className='err'>Password required *</div>) : null
                         }
-                       
+
                         <div className="btn" id="btn2">
                             <button>Register</button>
                         </div>
@@ -82,8 +95,8 @@ const Register = () => {
                 </div>
 
             </div>
-            {Loading ? 
-                (<div role='status'><LoadingOverlay /></div> ): null
+            {Loading ?
+                (<div role='status'><LoadingOverlay /></div>) : null
             }
         </>
     )
