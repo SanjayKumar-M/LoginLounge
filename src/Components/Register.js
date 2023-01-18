@@ -40,7 +40,12 @@ const Register = () => {
                 StorageData(response.data.tokenID);
             }
             )
-                .catch((error) => { console.log(error) })
+                .catch((error) => { 
+                    if(error.response.data.error.message === "EMAIL_EXISTS"){
+                        alert("Email already exists")
+                    }
+
+                 })
                 .finally(() => { setLoading(false) })
         }
         setErr(err)
@@ -55,7 +60,7 @@ const Register = () => {
 
     }
 
-    if (isAuthenticated()) {
+    if(isAuthenticated()){
         return <Navigate to="/dashboard" />
 
     }
