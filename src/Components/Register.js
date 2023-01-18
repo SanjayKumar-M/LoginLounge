@@ -29,19 +29,12 @@ const Register = () => {
             hasErrors = true;
         }
 
-        setErr(err)
+        
         if (!hasErrors) {
             setLoading(true);
-            //call API here
-            apiCall(Input, (error, response) => {
-                if (error) {
-                    // handle error
-                } else {
-                    // handle success
-                }
-                setLoading(false);
-            });
+          
         }
+        setErr(err)
     }
 
     const [Input, setInput] = useState({
