@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import "../Styles/Register.css"
 import LoadingOverlay from './Loading'
+
 const Register = () => {
 
     const initalErrors = {
@@ -9,7 +10,7 @@ const Register = () => {
 
     const [err, setErr] = useState(initalErrors)
 
-    const [loading, setLoading] = useState(false)
+    const [Loading, setLoading] = useState(false)
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -47,7 +48,7 @@ const Register = () => {
 
     return (
         <>
-            <div class="container">
+            <div className="container">
                 <div className='title'>
                     REGISTRATION
                 </div>
@@ -70,10 +71,10 @@ const Register = () => {
                             <div className='err'>Password required *</div>) : null
                         }
                        
-                        <div class="btn" id="btn2">
+                        <div className="btn" id="btn2">
                             <button>Register</button>
                         </div>
-                        <div class="signup">
+                        <div className="signup">
                             Already Registered? <a href="index.html">Login</a>
                         </div>
                     </form>
@@ -81,8 +82,8 @@ const Register = () => {
                 </div>
 
             </div>
-            {loading ? (<div>
-                <LoadingOverlay /></div>) : null
+            {Loading ? 
+                (<div role='status'><LoadingOverlay /></div> ): null
             }
         </>
     )
