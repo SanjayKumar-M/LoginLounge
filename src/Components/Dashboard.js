@@ -40,11 +40,11 @@ const Dashboard = () => {
 
 
                         <div className='hello'>
-                            Hello <span>{Detail.name}</span>, Welcome to LOGIN LOUNGE
+                            Hello <span>{Detail.name}</span>, Welcome to Login Lounge
                         </div>
                         <div className='idtoken'>
                             Your ID is <span>{Detail.localId}</span>
-                            And good email <span>{Detail.email}</span> !!
+                            <br></br> And good email <span>{Detail.email}</span> !!
                         </div>
 
                     </div>
