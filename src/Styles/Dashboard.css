@@ -52,7 +52,9 @@ span{
 }
 .dash{
     
-    color: rgb(255, 153, 0);
+    color: rgb(179, 176, 173);
     display: grid;
     text-align: center;
+    padding-top: 60px;
+    font-size: 1.7cm;
 }
