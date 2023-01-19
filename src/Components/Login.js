@@ -7,7 +7,7 @@ import LoadingOverlay from './Loading'
 import StorageData from './StorageData'
 const Login = () => {
     const initalErrors = {
-        email: { required: false }, name: { required: false }, password: { required: false }, API: null
+        email: { required: false },  password: { required: false }
     }
 
     const [err, setErr] = useState(initalErrors)
@@ -18,10 +18,7 @@ const Login = () => {
         event.preventDefault();
         let err = initalErrors;
         let hasErrors = false;
-        if (Input.name === "") {
-            err.name.required = true;
-            hasErrors = true;
-        }
+        
         if (Input.email === "") {
             err.email.required = true;
             hasErrors = true;
@@ -50,7 +47,7 @@ const Login = () => {
     }
 
     const [Input, setInput] = useState({
-        name: "", email: "", password: ""
+        email: "", password: ""
     })
 
     const handleInput = (event) => {
@@ -70,12 +67,7 @@ const Login = () => {
                 </div>
                 <div className='form'>
                     <form onSubmit={handleSubmit} action="">
-                        <label className='heading'>Name</label>
-                        <input type='text' name='name' onChange={handleInput}></input>
-                        {err.name.required ? (
-                            <div className='err'>Name required *</div>) : null
-                        }
-
+                        
                         <label className='heading' >Email</label>
                         <input type='text' name='email' onChange={handleInput}></input>
                         {err.email.required ? (

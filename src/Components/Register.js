@@ -9,7 +9,7 @@ import StorageData from './StorageData'
 const Register = () => {
 
     const initalErrors = {
-        email: { required: false }, name: { required: false }, password: { required: false }, API: null
+        email: { required: false }, name: { required: false }, password: { required: false }
     }
 
     const [err, setErr] = useState(initalErrors)
