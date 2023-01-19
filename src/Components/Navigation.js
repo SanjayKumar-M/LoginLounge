@@ -1,12 +1,13 @@
 import React from 'react'
 import '../Styles/Navigation.css'
+import logo from './logo.png'
 import { isAuthenticated } from './Authentication'
 import { Link } from 'react-router-dom'
 const Navigation = (props) => {
     return (
 
         (<nav>
-            <h1> LOGIN LOUNGE</h1>
+            <h1> <img src={logo}></img></h1>
             <ul>
                 {isAuthenticated() ? <li>
                     <Link className='navi' to="/dashboard">Dashboard</Link>
