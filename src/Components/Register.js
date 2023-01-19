@@ -4,6 +4,7 @@ import "../Styles/Register.css"
 import ApiRegister from './Api'
 import { isAuthenticated } from './Authentication'
 import LoadingOverlay from './Loading'
+import Navigation from './Navigation'
 import StorageData from './StorageData'
 
 const Register = () => {
@@ -66,6 +67,7 @@ const Register = () => {
     }
     return (
         <>
+        <Navigation />
             <div className="container">
                 <div className='title'>
                     REGISTRATION

@@ -17,7 +17,7 @@
 }
 
 nav {
-    background-color: #333;
+    background-color: rgba(25, 24, 26, 0.976);
     color: #fff;
     display: flex;
     justify-content: space-between;
@@ -34,12 +34,12 @@ nav ul {
     align-items: center;
 }
 nav ul li {
-    margin-left: 20px;
+    margin-left: 40px;
 }
-nav ul li a {
+nav ul li .navi {
     color: #fff;
     text-decoration: none;
 }
-nav ul li a:hover {
-    color: #ccc;
+nav ul li .navi :hover {
+    color: rgb(174, 159, 159);
 }

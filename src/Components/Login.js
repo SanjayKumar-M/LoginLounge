@@ -5,6 +5,7 @@ import { LoginApi } from './Api'
 import { isAuthenticated } from './Authentication'
 import LoadingOverlay from './Loading'
 import StorageData from './StorageData'
+import Navigation from './Navigation'
 const Login = () => {
     const initalErrors = {
         email: { required: false }, password: { required: false }
@@ -65,6 +66,7 @@ const Login = () => {
     }
     return (
         <>
+        <Navigation />
             <div className="container">
                 <div className='title'>
                     LOGIN

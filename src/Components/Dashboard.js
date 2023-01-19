@@ -3,9 +3,12 @@ import '../Styles/Dashboard.css'
 import Navigation from './Navigation'
 import { UserDetailsApi } from './Api'
 import LoadingOverlay from './Loading'
+import { Logout ,isAuthenticated} from './Authentication'
+import { Navigate, useNavigate } from 'react-router-dom'
 
 const Dashboard = () => {
     const [Detail, setDetail] = useState({ name: "", email: "", localId: "" })
+    const navigate = useNavigate()
     useEffect(()=>{
         UserDetailsApi().then((response)=>{
             setDetail({
@@ -15,9 +18,18 @@ const Dashboard = () => {
             })
         })
     })
+
+    const logoutUser = () => {
+        Logout()
+        navigate('/login')
+    }
+    if(!isAuthenticated()){
+        return <Navigate to='/login'/>
+
+    }
     return (
         <div>
-            <Navigation />
+            <Navigation logoutUser = {logoutUser}/>
             
             {Detail.name && Detail.email && Detail.localId ?
                 (<>

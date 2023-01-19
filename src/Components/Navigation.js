@@ -1,23 +1,25 @@
 import React from 'react'
 import '../Styles/Navigation.css'
-const Navigation = () => {
+import { isAuthenticated } from './Authentication'
+import { Link } from 'react-router-dom'
+const Navigation = (props) => {
     return (
-        <div>
-            <nav>
-                <h1> LOGIN LOUNGE</h1>
-                <ul>
-                    <li>
-                        <a href='google.com'>Register</a>
-                    </li>
-                    <li>
-                        <a href='google.com'>Logout</a>
-                    </li>
-                    <li>
-                        <a href='google.com'>Dashboard</a>
-                    </li>
-                </ul>
-            </nav>
-        </div>
+
+        (<nav>
+            <h1> LOGIN LOUNGE</h1>
+            <ul>
+                {isAuthenticated() ? <li>
+                    <Link className='navi' to="/dashboard">Dashboard</Link>
+                </li> : null}
+                {!isAuthenticated() ? <li>
+                    <Link className='navi' to="/register">Register</Link>
+                </li> : null}
+                {isAuthenticated() ? <li>
+                    <a className="navi"  onClick={props.logoutUser} style={{cursor:"pointer"}} >Logout</a>
+                </li> : null}
+            </ul>
+        </nav>)
+
     )
 }
 
