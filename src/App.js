@@ -1,4 +1,3 @@
-
 import Register from './Components/Register';
 import { BrowserRouter,Route,Routes } from 'react-router-dom';
 function App() {
