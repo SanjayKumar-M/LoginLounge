@@ -37,7 +37,7 @@ const Register = () => {
         if (!hasErrors) {
             setLoading(true);
             ApiRegister(Input).then((response) => {
-                StorageData(response.data.tokenID);
+                StorageData(response.data.idToken);
             }
             )
                 .catch((error) => { 

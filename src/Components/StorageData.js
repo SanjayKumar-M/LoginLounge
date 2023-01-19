@@ -1,9 +1,9 @@
 const StorageData = (data) =>{
-    localStorage.setItem('tokenID',data)
+    localStorage.setItem('idToken',data)
 
 }
 export const getStorageData = () =>{
-    return localStorage.getItem('tokenID')
+    return localStorage.getItem('idToken')
 }
 
 export default StorageData

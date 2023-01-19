@@ -24,7 +24,7 @@ const LoadingOverlay = () => {
               transform: "translate(-50%, -50%)",
             }}
           >
-          <PacmanLoader color="#36d7b7" />
+          <PacmanLoader color="yellow" />
           </div>
         </div>
       

@@ -32,7 +32,7 @@ const Login = () => {
         if (!hasErrors) {
             setLoading(true);
             LoginApi(Input).then((response) => {
-                StorageData(response.data.tokenID);
+                StorageData(response.data.idToken);
                 
             }
             )
