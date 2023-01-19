@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Navigate } from 'react-router-dom'
+import { Link,Navigate } from 'react-router-dom'
 import "../Styles/Register.css"
 import ApiRegister from './Api'
 import { isAuthenticated } from './Authentication'
@@ -48,7 +48,7 @@ const Register = () => {
                  })
                 .finally(() => { setLoading(false) })
         }
-        setErr(err)
+        setErr({...err})
     }
 
     const [Input, setInput] = useState({
@@ -93,7 +93,7 @@ const Register = () => {
                             <button>Register</button>
                         </div>
                         <div className="signup">
-                            Already Registered? <a href="index.html">Login</a>
+                            Already Registered? <Link to="/login">Login</Link>
                         </div>
                     </form>
 

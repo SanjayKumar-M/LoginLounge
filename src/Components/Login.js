@@ -1,13 +1,13 @@
-import React,{useState} from 'react'
+import React, { useState } from 'react'
 import "../Styles/Login.css"
-import { Navigate } from 'react-router-dom'
-import ApiRegister from './Api'
+import { Link, Navigate } from 'react-router-dom'
+import { LoginApi } from './Api'
 import { isAuthenticated } from './Authentication'
 import LoadingOverlay from './Loading'
 import StorageData from './StorageData'
 const Login = () => {
     const initalErrors = {
-        email: { required: false },  password: { required: false }
+        email: { required: false }, password: { required: false }
     }
 
     const [err, setErr] = useState(initalErrors)
@@ -18,7 +18,7 @@ const Login = () => {
         event.preventDefault();
         let err = initalErrors;
         let hasErrors = false;
-        
+
         if (Input.email === "") {
             err.email.required = true;
             hasErrors = true;
@@ -31,19 +31,23 @@ const Login = () => {
 
         if (!hasErrors) {
             setLoading(true);
-            ApiRegister(Input).then((response) => {
+            LoginApi(Input).then((response) => {
                 StorageData(response.data.tokenID);
+                alert("Logged in successfully")
             }
             )
                 .catch((error) => {
-                    if (error.response.data.error.message === "EMAIL_EXISTS") {
-                        alert("Email already exists")
+                    if (error.response.data.error.message === "INVALID_PASSWORD") {
+                        alert("Password is incorrect")
+                    }
+                    if (error.response.data.error.message === "EMAIL_NOT_FOUND") {
+                        alert("No user is Registered with this email.")
                     }
 
                 })
                 .finally(() => { setLoading(false) })
         }
-        setErr(err)
+        setErr({...err})
     }
 
     const [Input, setInput] = useState({
@@ -67,7 +71,7 @@ const Login = () => {
                 </div>
                 <div className='form'>
                     <form onSubmit={handleSubmit} action="">
-                        
+
                         <label className='heading' >Email</label>
                         <input type='text' name='email' onChange={handleInput}></input>
                         {err.email.required ? (
@@ -80,10 +84,10 @@ const Login = () => {
                         }
 
                         <div className="btn" id="btn2">
-                            <button>Login</button>
+                            <button disabled={Loading}>Login</button>
                         </div>
                         <div className="signup">
-                            New to this application? <a href="index.html">Register</a>
+                            New to this application? <Link to="/register">Register</Link>
                         </div>
                     </form>
 

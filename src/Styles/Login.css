@@ -19,8 +19,8 @@
 body {
     height: 100vh;
     width: 100%;
-    background-color: rgba(26, 0, 67, 0.141);
-    color: rgb(34, 2, 2);
+   background-color: rgba(29, 18, 46, 0.976);  /*rgba(130, 111, 160, 0.976) */
+    color: rgb(255, 255, 255);
     
 }
 
@@ -29,7 +29,7 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: rgb(162, 181, 247);
+    background-color:rgb(17, 17, 17);
     display: block;
     padding: 60px;
     border-radius: 19px;
@@ -56,7 +56,7 @@ body {
     display:flex;
     text-align: left;
     font-size:20px;
-    color: red;
+    color: rgb(127, 218, 207);
     padding-bottom: 20px;
 }
 
@@ -69,10 +69,11 @@ form input {
     margin: 3px 0;
     box-sizing: border-box;
     font-size: 20px;
-    background-color: rgb(241, 254, 255);
-    color: rgb(0, 0, 0);
+    background-color: rgb(28, 61, 63);
+    color: rgb(255, 255, 255);
     box-shadow: none;
-    border-color: rgb(246, 246, 246);
+    border-color: rgb(96, 56, 56);
+    border-radius: 11px;
 }
 
 
@@ -135,5 +136,5 @@ form input {
 .signup a {
     text-decoration: none;
     padding-left: 10px;
-    color: rgb(28, 0, 104)
+    color: rgb(0, 255, 81)
 }
