@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import '../Styles/Dashboard.css'
+import Navigation from './Navigation'
 import { UserDetailsApi } from './Api'
 import LoadingOverlay from './Loading'
+
 const Dashboard = () => {
     const [Detail, setDetail] = useState({ name: "", email: "", localId: "" })
     useEffect(()=>{
@@ -15,7 +17,8 @@ const Dashboard = () => {
     })
     return (
         <div>
-            <div className='dash'>Dashboard</div>
+            <Navigation />
+            
             {Detail.name && Detail.email && Detail.localId ?
                 (<>
                     <div className='dashcontainer'>
