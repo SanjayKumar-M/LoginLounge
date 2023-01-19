@@ -33,7 +33,7 @@ const Login = () => {
             setLoading(true);
             LoginApi(Input).then((response) => {
                 StorageData(response.data.tokenID);
-                alert("Logged in successfully")
+                
             }
             )
                 .catch((error) => {
